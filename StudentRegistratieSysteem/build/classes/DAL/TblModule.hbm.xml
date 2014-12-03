@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 3-dec-2014 14:34:16 by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+  <class catalog="registratiedb" name="DAL.TblModule" table="tbl_module">
+    <id name="moduleId" type="java.lang.Integer">
+      <column name="ModuleId"/>
+      <generator class="identity"/>
+    </id>
+    <property name="naam" type="string">
+      <column length="250" name="Naam" not-null="true"/>
+    </property>
+    <property name="lokaalId" type="int">
+      <column name="LokaalId" not-null="true"/>
+    </property>
+    <property name="docentId" type="int">
+      <column name="DocentId" not-null="true"/>
+    </property>
+    <property name="cursistId" type="int">
+      <column name="CursistId" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
