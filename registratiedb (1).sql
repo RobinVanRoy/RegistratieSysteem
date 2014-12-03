@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: localhost
--- Genereertijd: 03 dec 2014 om 13:46
+-- Genereertijd: 03 dec 2014 om 15:31
 -- Serverversie: 5.6.13
 -- PHP-versie: 5.4.17
 
@@ -33,9 +33,15 @@ CREATE TABLE IF NOT EXISTS `tbl_cursist` (
   `Naam` varchar(250) NOT NULL,
   `Email` varchar(250) NOT NULL,
   `Phone` varchar(250) NOT NULL,
-  `ModuleId` int(11) NOT NULL,
   PRIMARY KEY (`CursistId`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Gegevens worden uitgevoerd voor tabel `tbl_cursist`
+--
+
+INSERT INTO `tbl_cursist` (`CursistId`, `Naam`, `Email`, `Phone`) VALUES
+(1, 'Robin', 'ikke@gmail.com', '0486.13.25.65');
 
 -- --------------------------------------------------------
 
