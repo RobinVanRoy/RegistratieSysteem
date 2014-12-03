@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 3-dec-2014 14:34:16 by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
-  <class catalog="registratiedb" name="DAL.TblCursist" table="tbl_cursist">
+  <class catalog="registratiedb" name="DAL.Cursist" table="tbl_cursist">
     <id name="cursistId" type="java.lang.Integer">
       <column name="CursistId"/>
       <generator class="identity"/>
@@ -16,8 +16,8 @@
     <property name="phone" type="string">
       <column length="250" name="Phone" not-null="true"/>
     </property>
-    <property name="moduleId" type="int">
+    <!--<property name="moduleId" type="int">
       <column name="ModuleId" not-null="true"/>
-    </property>
+    </property>-->
   </class>
 </hibernate-mapping>

@@ -6,17 +6,21 @@
 
 package UI;
 
+import BO.Services.CursistServices;
+import DAL.Cursist;
+
 /**
  *
  * @author 11627
  */
 public class CursistToevoegenFrm extends javax.swing.JFrame {
 
-    /**
-     * Creates new form StartFrame
-     */
+    CursistServices service = new CursistServices();
+    
     public CursistToevoegenFrm() {
         initComponents();
+        
+        lstCursisten.setListData(service.getAllCursisten().toArray());
     }
 
     /**
@@ -47,6 +51,11 @@ public class CursistToevoegenFrm extends javax.swing.JFrame {
         jLabel3.setText("Phone:");
 
         btnSave.setText("Opslaan");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         jScrollPane1.setViewportView(lstCursisten);
 
@@ -72,15 +81,14 @@ public class CursistToevoegenFrm extends javax.swing.JFrame {
                             .addComponent(btnSave)
                             .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(38, 38, 38)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(72, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
@@ -94,12 +102,25 @@ public class CursistToevoegenFrm extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
-                        .addComponent(btnSave)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addComponent(btnSave))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        Cursist c =new Cursist();
+        c.setNaam(txtNaam.getText());
+        c.setEmail(txtEmail.getText());
+        c.setPhone(txtPhone.getText());
+        
+        service = new CursistServices();
+        service.SaveCursist(c);
+        
+        lstCursisten.setListData(service.getAllCursisten().toArray());
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
